@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h2 class="fw-bolder mb-1">{{article.title}}</h2>
+                    <p class="lead">
+                        by
+                        {{article.author.username}}
+                    </p>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Oluşturulma Tarihi : {{article.created_date}}</div>
+                </header>
+                <!-- Preview image figure-->
+                {% if article.article_image %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{article.article_image.url}}" alt="" /></figure>
+                {% endif %}
+                <!-- Post content-->
+                <section class="mb-5">
+                    {{article.content|safe}}
+                </section>
+{% endblock body %}
